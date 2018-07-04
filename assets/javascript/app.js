@@ -1,5 +1,13 @@
-jQuery(function ($) {
+$( document ).ready( function(){
 //start a timer for 3 minutes when the page is loaded
+var threeMinutes = 10,
+display = $('#timer');
+
+function timeOut(){
+    if (threeMinutes == 0)(
+        gameChecker()
+    );
+};
 function startTimer(duration, display) {
 var timer = duration, minutes, seconds;
 setInterval(function () {
@@ -60,9 +68,8 @@ function gameChecker(){
     resetForm();
 }
 
-var threeMinutes = 60*3,
-display = $('#timer');
 startTimer(threeMinutes, display);
+timeOut();
 
 //create a click function when the user hits submit
 //run the answer checker function
