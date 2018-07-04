@@ -1,46 +1,77 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
+jQuery(function ($) {
+//start a timer for 3 minutes when the page is loaded
+function startTimer(duration, display) {
+var timer = duration, minutes, seconds;
+setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.text("Time Remaining: " + minutes + ":" + seconds);
+    if (--timer < 0) {
+        timer = duration;
+    }
+}, 1000);
+}
+
+var right = 0;
+var wrong = 0;
+
+//creating reset for forms
+function resetForm(){
     var right = 0;
     var wrong = 0;
-    var timer = 300;
+    $('#question0').trigger("reset");
+    $('#question1').trigger("reset");
+    $('#question2').trigger("reset");
+    $('#question3').trigger("reset");
+    $('#question4').trigger("reset");
+}
 
+//create an answer checker function
+//both when the timer ends and when the user hits submit
+//add an alert that shows correct vs wrong
+function gameChecker(){
+    var quest = [
+    $('#question0 input[type=radio][name=attempt0]:checked').val(),
+    $('#question1 input[type=radio][name=attempt1]:checked').val(),
+    $('#question2 input[type=radio][name=attempt2]:checked').val(),
+    $('#question3 input[type=radio][name=attempt3]:checked').val(), 
+    $('#question4 input[type=radio][name=attempt4]:checked').val()]
 
-    //create an answer checker function that is called
-    //both when the times ends and when the user hits submit
-    //add an alert that shows correct vs wrong
-    function gameChecker(){
-        var quest = [$('#question0 input').val(),
-        $('#question1 input').val(),
-        $('#question2 input').val(),
-        $('#question3 input').val(), 
-        $('#question4 input').val()]
-
-        for (var i = 0; i < quest.length ; i++){
-            if (quest[i] == true)(
-                right++
-            );
-            else(
-                wrong++
-            );
-        }
-
-        alert('You got ' + right + ' right! And got ' +
-            wrong + ' wrong!');
-
-        if(wrong == 5)(
-            alert('YOU GOT ALL OF THEM RIGHT!')
+    for (var i = 0; i < quest.length ; i++){
+        if (quest[i] == "true")(
+            right++
+        );
+        else(
+            wrong++
         );
     }
 
-    //start a timer for 3 minutes when the page is loaded
+    alert('You got ' + right + ' right! And got ' +
+        wrong + ' wrong!');
 
-    //create if else statement
-    //if timer =0, 
-    //else wait for the submit button
+    if(right == 5)(
+        alert('YOU GOT ALL OF THEM RIGHT!')
+    );
 
-    //create a click function when the user hits submit
-    //run the answer checker function
+    resetForm();
+}
 
+var threeMinutes = 60*3,
+display = $('#timer');
+startTimer(threeMinutes, display);
 
+//create a click function when the user hits submit
+//run the answer checker function
+$( "#submit" ).click(function(){
+    gameChecker();
 });
+
+$( "#reset" ).click(function(){
+    resetForm();
+});
+});
+

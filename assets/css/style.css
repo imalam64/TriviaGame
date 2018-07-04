@@ -68,6 +68,12 @@ form{
 	text-align: center;
 }
 
+#timer{
+	text-align: center;
+	font-size: 3rem;
+	margin: 2rem;
+}
+
 #submit{
 	border-radius: 8px;
 	background-color: #4CAF50;
