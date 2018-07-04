@@ -7,6 +7,8 @@ body {
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 2rem;
 }
 
 @-webkit-keyframes Gradient {
@@ -46,25 +48,40 @@ body {
 }
 
 h1{
-    font-family: 'PT Sans Narrow', sans-serif;
     font-size: 5rem;
     text-align: center;
     margin: 2rem;
 }
 
 p{
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-size: 2rem;
-    text-align: center;
+	text-align: center;
+	margin: 1rem;
 }
 
-button {
-    background-color: whitesmoke;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+form{
+	text-align: center;
+}
+
+.formAction{
+	margin: 2rem auto;
+	width: 100%;
+	text-align: center;
+}
+
+#submit{
+	border-radius: 8px;
+	background-color: #4CAF50;
+	padding: 15px 32px;
+	font-family: 'PT Sans Narrow', sans-serif;
+	color: white;
+	font-size: 1rem;
+}
+
+#reset{
+	border-radius: 8px;
+	background-color: rgb(226, 222, 230);
+	padding: 15px 32px;
+	font-family: 'PT Sans Narrow', sans-serif;
+	color: black;
+	font-size: 1rem;
 }

@@ -1,22 +1,46 @@
 $( document ).ready(function() {
     console.log( "ready!" );
-    var question = [
-        "What is the capitol of Arkansas?",
-        "What is the capitol of Texas?",
-        "What is the capitol of Wyoming?",
-        "What is the capitol of Florida?",
-        "What is the capitol of Rhode Island?"
-    ];
-    console.log( question);
-    var answer0 = ["El Dorado", "Conway", "Little Rock", "Jonesboro"]; //Little Rock
-    var answer1 = ["Austin", "Dallas", "Houston", "San Antonio"]; //Austin
-    var answer2 = ["Casper", "Cheyenne", "Jackson", "Rock Springs"]; //Cheyenne
-    var answer3 = ["Miami", "Tallahassee", "Orlando", "Tampa"]; //Tallahassee
-    var answer4 = ["Warwick", "Providence", "Cranston", "Little Compton"]; //Providence
 
-    //on click, start the timer
+    var right = 0;
+    var wrong = 0;
+    var timer = 300;
 
-    //display the questions
 
-    //
+    //create an answer checker function that is called
+    //both when the times ends and when the user hits submit
+    //add an alert that shows correct vs wrong
+    function gameChecker(){
+        var quest = [$('#question0 input').val(),
+        $('#question1 input').val(),
+        $('#question2 input').val(),
+        $('#question3 input').val(), 
+        $('#question4 input').val()]
+
+        for (var i = 0; i < quest.length ; i++){
+            if (quest[i] == true)(
+                right++
+            );
+            else(
+                wrong++
+            );
+        }
+
+        alert('You got ' + right + ' right! And got ' +
+            wrong + ' wrong!');
+
+        if(wrong == 5)(
+            alert('YOU GOT ALL OF THEM RIGHT!')
+        );
+    }
+
+    //start a timer for 3 minutes when the page is loaded
+
+    //create if else statement
+    //if timer =0, 
+    //else wait for the submit button
+
+    //create a click function when the user hits submit
+    //run the answer checker function
+
+
 });
