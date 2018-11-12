@@ -1,6 +1,6 @@
 $( document ).ready( function(){
 //start a timer for 3 minutes when the page is loaded
-var threeMinutes = 10,
+var threeMinutes = 30,
 display = $('#timer');
 
 function timeOut(){
@@ -8,8 +8,10 @@ function timeOut(){
         gameChecker()
     );
 };
+
 function startTimer(duration, display) {
 var timer = duration, minutes, seconds;
+
 setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
@@ -29,8 +31,8 @@ var wrong = 0;
 
 //creating reset for forms
 function resetForm(){
-    var right = 0;
-    var wrong = 0;
+    right = 0;
+    wrong = 0;
     $('#question0').trigger("reset");
     $('#question1').trigger("reset");
     $('#question2').trigger("reset");
